@@ -22,28 +22,33 @@ function Libres() {
     try {
       const result = await uploaFiles(file);
       seturlImg(result);
+
+      const nombre = formData.get("nombre");
+      const descriccion = formData.get("descriccion");
+      const url = formData.get("url");
+      const img = result;
+      // encarga de guardar los datos
+
+      // guardar datos en firestore
+      console.log(nombre);
+      console.log(descriccion);
+      console.log(url);
+      console.log(img);
+
+      const newObj = {
+        nombre,
+        descriccion,
+        url,
+        img,
+      };
+      await saveArchivos(newBook);
+
+      // funcion para almacenar datos en firesetore(newBook)
+      console.log(newObj);
+      // limpiar formulario
     } catch (error) {
       console.log(error);
     }
-
-    const nombre = formData.get("nombre");
-    const descriccion = formData.get("descriccion");
-    const url = formData.get("url");
-    const img = urlImg;
-    // encarga de guardar los datos
-
-    // guardar datos en firestore
-    setNewBook({
-      nombre,
-      descriccion,
-      url,
-      img,
-    });
-    await saveArchivos(newBook);
-
-    // funcion para almacenar datos en firesetore(newBook)
-    console.log(newBook);
-    // limpiar formulario
   };
 
   return (
