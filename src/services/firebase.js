@@ -91,11 +91,10 @@ export async function updateUser(user) {
   } catch (error) {}
 }
 
-export const saveArchivos = (nombre, descriccion, url) =>
-  addDoc(collection(db, "archivos"), { nombre, descriccion, url });
+export const saveArchivos = (data) => addDoc(collection(db, "libros"), data);
 
-export function traerArchivos(nombre, descriccion, url) {
-  onSnapshot(collection(db, "archivos"), (querySnapchot) => {
+export function traerDatos() {
+  onSnapshot(collection(db, "libros"), (querySnapchot) => {
     querySnapchot.forEach((doc) => {});
   });
 }
