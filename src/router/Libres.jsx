@@ -1,21 +1,18 @@
 import { useState } from "react";
 import "../App.css";
 import "../services/firebase.js";
-import {
-  uploaFiles,
-  saveArchivos,
-  traerArchivos,
-} from "../services/firebase.js";
+import { uploaFiles, saveArchivos } from "../services/firebase.js";
 
 const initialNewBookSetate = {
   nombre: "",
   descriccion: "",
   url: "",
+  img: "",
 };
 function Libres() {
   const [file, setfile] = useState(null);
   const [urlImg, seturlImg] = useState("");
-  const [newBook, setnewBook] = useState(initialNewBookSetate);
+  const [newBook, setNewBook] = useState(initialNewBookSetate);
 
   const handleSubmit = async (e) => {
     const formData = new FormData(e.target);
@@ -32,8 +29,21 @@ function Libres() {
     const nombre = formData.get("nombre");
     const descriccion = formData.get("descriccion");
     const url = formData.get("url");
+    const img = urlImg;
+    // encarga de guardar los datos
 
-    saveArchivos(nombre, descriccion, url);
+    // guardar datos en firestore
+    setNewBook({
+      nombre,
+      descriccion,
+      url,
+      img,
+    });
+    await saveArchivos(newBook);
+
+    // funcion para almacenar datos en firesetore(newBook)
+    console.log(newBook);
+    // limpiar formulario
   };
 
   return (
@@ -57,7 +67,7 @@ function Libres() {
           onChange={(e) => setfile(e.target.files[0])}
         />
 
-        <button> Subir </button>
+        <button type="submit"> Subir </button>
       </form>
 
       <div className="data">
