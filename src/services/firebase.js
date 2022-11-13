@@ -94,7 +94,7 @@ export async function updateUser(user) {
 export const saveArchivos = (data) => addDoc(collection(db, "libros"), data);
 
 export async function traerDatos() {
-  const querySnapshot = await getDocs(collection(db, "cities"));
+  const querySnapshot = await getDocs(collection(db, "libros"));
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     console.log(doc.id, " => ", doc.data());
