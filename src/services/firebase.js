@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { useState } from "react";
 import {
   getFirestore,
   collection,
@@ -95,8 +96,10 @@ export const saveArchivos = (data) => addDoc(collection(db, "libros"), data);
 
 export async function traerDatos() {
   const querySnapshot = await getDocs(collection(db, "libros"));
+  const docs = [];
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
+    docs.push({ ...doc.data(), id: doc.id });
   });
+  return docs;
 }

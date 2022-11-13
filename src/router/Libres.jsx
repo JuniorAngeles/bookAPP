@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../App.css";
 import "../services/firebase.js";
-import { uploaFiles, saveArchivos } from "../services/firebase.js";
+import { uploaFiles, saveArchivos, traerDatos } from "../services/firebase.js";
+import { BookItem } from "../components/BookItem";
 
 const initialNewBookSetate = {
   nombre: "",
@@ -9,10 +10,17 @@ const initialNewBookSetate = {
   url: "",
   img: "",
 };
+
 function Libres() {
   const [file, setfile] = useState(null);
   const [urlImg, seturlImg] = useState("");
   const [newBook, setNewBook] = useState(initialNewBookSetate);
+  const [libros, setLibros] = useState([]);
+
+  useEffect(() => {
+    traerDatos().then(setLibros);
+    console.log(libros);
+  }, []);
 
   const handleSubmit = async (e) => {
     const formData = new FormData(e.target);
@@ -43,10 +51,11 @@ function Libres() {
       };
 
       // setNewBook(newObj);
+      // setNewBook(newObj);
       await saveArchivos(newObj);
 
       // funcion para almacenar datos en firesetore(newBook)
-      console.log(newObj);
+      // console.log(newObj);
       // limpiar formulario
     } catch (error) {
       console.log(error);
@@ -78,12 +87,10 @@ function Libres() {
       </form>
 
       <div className="data">
-        {/* <h1>{nombre.value}</h1>
-        <p>{descriccion.value}</p>
-        <p>{data}</p>
-        <p>{data}</p>
-        <a href={data}></a> */}
-        <img src={urlImg}></img>
+        {libros.map((book) => {
+          return <BookItem key={book.id} book={book} />;
+        })}
+        {/* <img src={urlImg} /> */}
       </div>
     </>
   );
