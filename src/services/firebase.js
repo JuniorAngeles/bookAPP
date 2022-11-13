@@ -93,8 +93,10 @@ export async function updateUser(user) {
 
 export const saveArchivos = (data) => addDoc(collection(db, "libros"), data);
 
-export function traerDatos() {
-  onSnapshot(collection(db, "libros"), (querySnapchot) => {
-    querySnapchot.forEach((doc) => {});
+export async function traerDatos() {
+  const querySnapshot = await getDocs(collection(db, "cities"));
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
   });
 }
