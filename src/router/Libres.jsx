@@ -41,7 +41,9 @@ function Libres() {
         url,
         img,
       };
-      await saveArchivos(newBook);
+
+      // setNewBook(newObj);
+      await saveArchivos(newObj);
 
       // funcion para almacenar datos en firesetore(newBook)
       console.log(newObj);
