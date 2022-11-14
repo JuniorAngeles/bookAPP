@@ -1,97 +1,27 @@
 import { useState, useEffect } from "react";
-import "../App.css";
 import "../services/firebase.js";
-import { uploaFiles, saveArchivos, traerDatos } from "../services/firebase.js";
+import { traerDatos } from "../services/firebase.js";
 import { BookItem } from "../components/BookItem";
-
-const initialNewBookSetate = {
-  nombre: "",
-  descriccion: "",
-  url: "",
-  img: "",
-};
+import { Link } from "react-router-dom";
+import "../styles/book.css";
 
 function Libres() {
-  const [file, setfile] = useState(null);
-  const [urlImg, seturlImg] = useState("");
-  const [newBook, setNewBook] = useState(initialNewBookSetate);
   const [libros, setLibros] = useState([]);
 
   useEffect(() => {
     traerDatos().then(setLibros);
-    console.log(libros);
+    // console.log(libros);
   }, []);
-
-  const handleSubmit = async (e) => {
-    const formData = new FormData(e.target);
-
-    e.preventDefault();
-
-    try {
-      const result = await uploaFiles(file);
-      seturlImg(result);
-
-      const nombre = formData.get("nombre");
-      const descriccion = formData.get("descriccion");
-      const url = formData.get("url");
-      const img = result;
-      // encarga de guardar los datos
-
-      // guardar datos en firestore
-      console.log(nombre);
-      console.log(descriccion);
-      console.log(url);
-      console.log(img);
-
-      const newObj = {
-        nombre,
-        descriccion,
-        url,
-        img,
-      };
-
-      // setNewBook(newObj);
-      // setNewBook(newObj);
-      await saveArchivos(newObj);
-
-      // funcion para almacenar datos en firesetore(newBook)
-      // console.log(newObj);
-      // limpiar formulario
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <>
-      <h1></h1>
-      <form id="formulario" onSubmit={handleSubmit}>
-        <label className="nombre">Inserta el titulo</label>
-        <input type="text" name="nombre" id="nombre" />
-
-        <label className="descriccion">Inserta la descriccion</label>
-        <input type="text" name="descriccion" id="descriccion" />
-
-        <label className="url">Ingresa la url de la ubicacion del libro </label>
-        <input type="text" name="url" id="url" />
-
-        <input
-          type="file"
-          name=""
-          id=""
-          required
-          onChange={(e) => setfile(e.target.files[0])}
-        />
-
-        <button type="submit"> Subir </button>
-      </form>
-
       <div className="data">
         {libros.map((book) => {
           return <BookItem key={book.id} book={book} />;
         })}
         {/* <img src={urlImg} /> */}
       </div>
+      <Link to="/Libres/createBook">Subir un Libro!</Link>
     </>
   );
 }
