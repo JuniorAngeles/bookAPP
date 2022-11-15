@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%;
     height: 50px;
+    
   }
   
   .menu-title {
@@ -17,6 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
   }
   
   .menu-nav__list {
@@ -25,6 +27,7 @@
     justify-content: center;
     margin-top: 0.5rem;
     text-decoration: none;
+    
   }
   
   .menu-nav__item {
@@ -32,6 +35,7 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     list-style: none;
+    
   }
   
   .menu-nav__link {
