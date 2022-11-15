@@ -11,7 +11,6 @@ export function BookItem({ book }) {
           <img src={book.img} alt={book.nombre} />
         </a>
       </div>
-      <th />
     </div>
   );
 }
