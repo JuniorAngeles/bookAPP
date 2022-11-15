@@ -10,11 +10,11 @@ import Profile from "./router/Profile";
 import UsernameView from "./router/UsernameView";
 import { CreateBook } from "./router/CreateBook";
 import { Navigate } from "react-router-dom";
-// import Header from "./components/Header";
+import Header from "./components/Header";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    {/* <Header /> */}
+    <Header />
     <Routes>
       <Route path="/" element={<Navigate to={"/Libres"} />} />
       <Route path="/Libres" element={<Libres />} />
