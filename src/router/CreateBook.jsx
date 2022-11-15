@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "../services/firebase.js";
 // import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "../styles/form.css";
 
 export function CreateBook() {
   const [file, setfile] = useState(null);
@@ -49,26 +50,30 @@ export function CreateBook() {
   };
   return (
     <>
-      <form id="formulario" onSubmit={handleSubmit}>
-        <label className="nombre">Inserta el titulo</label>
-        <input type="text" name="nombre" id="nombre" />
+      <section className="contenedor">
+        <form id="formulario" onSubmit={handleSubmit}>
+          <label className="nombre">Inserta el titulo</label>
+          <input type="text" name="nombre" id="nombre" required />
 
-        <label className="descriccion">Inserta la descriccion</label>
-        <input type="text" name="descriccion" id="descriccion" />
+          <label className="descriccion">Inserta la descriccion</label>
+          <input type="text" name="descriccion" id="descriccion" required />
 
-        <label className="url">Ingresa la url de la ubicacion del libro </label>
-        <input type="text" name="url" id="url" />
+          <label className="url">
+            Ingresa la url de la ubicacion del libro{" "}
+          </label>
+          <input type="text" name="url" id="url" required />
 
-        <input
-          type="file"
-          name=""
-          id=""
-          required
-          onChange={(e) => setfile(e.target.files[0])}
-        />
+          <input
+            type="file"
+            name=""
+            id="file"
+            required
+            onChange={(e) => setfile(e.target.files[0])}
+          />
 
-        <button type="submit"> Subir </button>
-      </form>
+          <button type="submit"> Subir </button>
+        </form>
+      </section>
     </>
   );
 }

@@ -21,7 +21,6 @@ function Libres() {
         })}
         {/* <img src={urlImg} /> */}
       </div>
-      <Link to="/Libres/createBook">Subir un Libro!</Link>
     </>
   );
 }
