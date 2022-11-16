@@ -11,6 +11,7 @@ import UsernameView from "./router/UsernameView";
 import { CreateBook } from "./router/CreateBook";
 import { Navigate } from "react-router-dom";
 import Header from "./components/Header";
+import Documentacion from "./router/Documentation";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/Libres/u/:username" element={<Profile />} />
       <Route path="/Libres/choose-username" element={<UsernameView />} />
       <Route path="/Libres/createBook" element={<CreateBook />} />
+      <Route path="/Libres/Documentation" element={<Documentacion />} />
     </Routes>
   </BrowserRouter>
 );

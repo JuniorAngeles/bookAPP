@@ -17,6 +17,11 @@ export default function Header() {
             Subir Libro
           </Link>
         </span>
+        <span className="menu-nav__link">
+          <Link className="menu-nav__link" to="/Libres/Documentation">
+            Documentacion
+          </Link>
+        </span>
       </nav>
     </header>
   );
