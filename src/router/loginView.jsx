@@ -58,9 +58,11 @@ export default function Login(params) {
         const res = await signInWithPopup(auth, googleProvider);
         console.log(res);
       } catch (error) {
+        navigate("/Libres");
         console.error(error);
       }
     }
+    navigate("/Libres");
   }
 
   function handlerUserLoggedIn(user) {
