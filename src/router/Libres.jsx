@@ -3,7 +3,6 @@ import "../services/firebase.js";
 import { traerDatos } from "../services/firebase.js";
 import { BookItem } from "../components/BookItem";
 import { Link } from "react-router-dom";
-import "../styles/book.css";
 
 function Libres() {
   const [libros, setLibros] = useState([]);
@@ -15,7 +14,7 @@ function Libres() {
 
   return (
     <>
-      <div className="data">
+      <div className="padre">
         {libros.map((book) => {
           return <BookItem key={book.id} book={book} />;
         })}
