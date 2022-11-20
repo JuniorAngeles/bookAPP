@@ -57,6 +57,7 @@ export default function Login(params) {
       try {
         const res = await signInWithPopup(auth, googleProvider);
         console.log(res);
+        localStorage.setItem("userid", res.user.uid);
       } catch (error) {
         navigate("/Libres");
         console.error(error);
@@ -70,7 +71,7 @@ export default function Login(params) {
   }
 
   function handleUserNotRegistered(user) {
-    navigate("/choose-username");
+    navigate("/Libres");
   }
 
   function handlerUserNotLoggedIn(user) {

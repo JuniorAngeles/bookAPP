@@ -22,6 +22,7 @@ export function CreateBook() {
       const descriccion = formData.get("descriccion");
       const url = formData.get("url");
       const img = result;
+      const creadoPor = localStorage.getItem("userid");
       // encarga de guardar los datos
 
       // guardar datos en firestore
@@ -35,6 +36,7 @@ export function CreateBook() {
         descriccion,
         url,
         img,
+        creadoPor,
       };
 
       // setNewBook(newObj);

@@ -22,6 +22,11 @@ export default function Header() {
             Documentacion
           </Link>
         </span>
+        <span className="menu-nav__link">
+          <Link className="menu-nav__link" to="/Libres/signout">
+            Cerrar Sesion
+          </Link>
+        </span>
       </nav>
     </header>
   );

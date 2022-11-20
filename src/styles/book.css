@@ -58,6 +58,12 @@
   margin-bottom: 15px;
 }
 
+.contenedor figure:hover > .capa a{
+ color: crimson;
+ font-family: 'Courier New', Courier, monospace;
+ font-style: italic;
+}
+
 .contenedor figure:hover > img{
   transform: scale(1.3);
 }

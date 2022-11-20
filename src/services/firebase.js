@@ -21,7 +21,7 @@ import {
   getDownloadURL,
   getBytes,
 } from "firebase/storage";
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APP_APIKEY,
@@ -102,4 +102,9 @@ export async function traerDatos() {
     docs.push({ ...doc.data(), id: doc.id });
   });
   return docs;
+}
+
+export async function salir() {
+  await signOut(auth);
+  localStorage.clear();
 }
