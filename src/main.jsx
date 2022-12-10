@@ -15,7 +15,7 @@ import Documentacion from "./router/Documentation";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div id="claroTema">
-    <HashRouter basename="/bookAPP/">
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Navigate to={"/Libres"} />} />
