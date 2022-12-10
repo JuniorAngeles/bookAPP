@@ -15,7 +15,7 @@ import Documentacion from "./router/Documentation";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div id="claroTema">
-    <BrowserRouter>
+    <BrowserRouter basename="/bookAPP/">
       <Header />
       <Routes>
         <Route path="/" element={<Navigate to={"/Libres"} />} />
