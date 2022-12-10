@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/Libres/login" element={<Login />} />
         <Route path="/Libres/Dasboard" element={<Dasboard />} />
         <Route path="/Libres/signout" element={<Signout />} />
-        <Route path="/Libres/dashboard/profile" element={<EditProfile />} />
+        <Route path="/Libres/dashboar/profile" element={<EditProfile />} />
         <Route path="/Libres/u/:username" element={<Profile />} />
         <Route path="/Libres/choose-username" element={<UsernameView />} />
         <Route path="/Libres/createBook" element={<CreateBook />} />

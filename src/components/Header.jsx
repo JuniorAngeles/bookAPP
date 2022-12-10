@@ -27,6 +27,11 @@ export default function Header() {
             Cerrar Sesion
           </Link>
         </span>
+        <span className="menu-nav__link">
+          <Link className="menu-nav__link" to="/Libres/u/:username">
+            Perfil
+          </Link>
+        </span>
       </nav>
     </header>
   );

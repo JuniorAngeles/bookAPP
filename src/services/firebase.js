@@ -108,3 +108,20 @@ export async function salir() {
   await signOut(auth);
   localStorage.clear();
 }
+
+export async function dataUser() {
+  const librosRef = collection(db, "libros");
+
+  const q = query(
+    librosRef,
+    where("libros", "==", localStorage.getItem("userid"))
+  );
+  const querySnapshot = await getDocs(q);
+  // console.log(q.firestore._authCredentials.currentUser.uid);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+  });
+
+  return querySnapshot;
+}
