@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Libres from "./router/Libres";
 import Login from "./router/loginView";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Signout from "./router/singout";
 import Dasboard from "./router/Dasboar";
 import EditProfile from "./router/editProfile";
@@ -15,7 +15,7 @@ import Documentacion from "./router/Documentation";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div id="claroTema">
-    <BrowserRouter basename="/bookAPP/">
+    <HashRouter basename="/bookAPP/">
       <Header />
       <Routes>
         <Route path="/" element={<Navigate to={"/Libres"} />} />
@@ -29,6 +29,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/Libres/createBook" element={<CreateBook />} />
         <Route path="/Libres/Documentation" element={<Documentacion />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </div>
 );
